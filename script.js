@@ -14,7 +14,10 @@ let checking = function () {
             document.querySelector('.message').textContent = 'No Number';
         }
         else if (guess !== secretNumber) {
-            document.querySelector('.message').textContent = guess > secretNumber ? 'Too high' : 'Too low';
+            if (Math.abs(secretNumber - guess) <= 2) {
+                document.querySelector('.message').textContent = guess > secretNumber ? 'Close but high' : 'Close but low';
+            }
+            else { document.querySelector('.message').textContent = guess > secretNumber ? 'Too high' : 'Too low'; }
             score--;
             document.querySelector('.score').textContent = score;
         }
